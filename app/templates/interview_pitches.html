@@ -2,11 +2,26 @@
 {% import 'macros.html' as macro %}
 
 {%block content%}
-    <div class="container">
-        <h1>Interview Pitches</h1>
-        <hr>
-        <div class="row">
-            {{macro.displayPitches(pitches)}}
-        </div>
-    </div>
+<div class="row">
+  <div class="col-md-4">
+      <div class="well well-lg">
+          <h3>Interview Pitches</h3>
+          <p>These are short pitches that will help you ace your interview in just a minute.</p>
+          <a href="{{url_for('main.interview_pitches')}}" class="btn btn-primary -center">View</a>
+      </div>
+  </div>
+  <div class="col-md-4">
+      <div class="well well-lg">
+          <h3>Product Pitches</h3>
+          <p>These are short pitches that will help you ace your product presentation in just a minute.</p>
+          <a href="{{url_for('main.product_pitches')}}" class="btn btn-primary -center">View</a>
+      </div>
+  </div>
+  <div class="col-md-4">
+      <div class="well well-lg">
+          <h3>Promotion Pitches</h3>
+          <p>These are short pitches that will help you ace your promotion presentation in just a minute.</p>
+          <a href="{{url_for('main.promotion_pitches')}}" class="btn btn-primary -center">View</a>
+      </div>
+  </div>
 {%endblock%}
