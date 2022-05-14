@@ -11,7 +11,7 @@ from flask_mail import Mail
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '564648sjdhbfl654684adfa'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://ihxlugvhbwpazq:b22f33bb92783a54f46d24f58b8d29554dcab17780799902a3d1e497fa582e5b@ec2-54-165-184-219.compute-1.amazonaws.com:5432/dcq9vagtjfhq2c'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://ihxlugvhbwpazq:b22f33bb92783a54f46d24f58b8d29554dcab17780799902a3d1e497fa582e5b@ec2-54-165-184-219.compute-1.amazonaws.com:5432/dcq9vagtjfhq2c'
 
 db = SQLAlchemy(app)
 login_manager = LoginManager(app)
