@@ -30,15 +30,14 @@ python3 run.py runserver
 - Postgres Database
 # BDD
 The program lets a user register
-
 - Example input: Submit registration form
 - Example output: User receives a welcome email
-The program lets the user login
 
+The program lets the user login
 - Example input: Submit login form
 - Example output: displays user name on right of navbar
-The program lets a user publish a pitch
 
+The program lets a user publish a pitch
 - Example input: Create a pitch
 - Example output: Redirects user to form to create a pitch
 
