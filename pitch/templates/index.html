@@ -1,0 +1,219 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container ">
+  <div class="row">
+    <div class="col-md-9">
+  <!-- Tabs navs -->
+<ul class="nav nav-tabs mb-3 m-4 mt-5" id="ex-with-icons" role="tablist">
+  <li class="nav-item" role="presentation">
+    <a class="nav-link active" id="ex-with-icons-tab-1" data-mdb-toggle="tab" href="#ex-with-icons-tabs-1" role="tab"
+      aria-controls="ex-with-icons-tabs-1" aria-selected="true"><i class="fas fa-anchor fa-fw me-2"></i>All Pitches</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="ex-with-icons-tab-2" data-mdb-toggle="tab" href="#ex-with-icons-tabs-2" role="tab"
+      aria-controls="ex-with-icons-tabs-2" aria-selected="false"><i class="fas fa-chart-pie fa-fw me-2"></i>Business</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="ex-with-icons-tab-3" data-mdb-toggle="tab" href="#ex-with-icons-tabs-3" role="tab"
+      aria-controls="ex-with-icons-tabs-3" aria-selected="false"><i class="fas fa-chart-line fa-fw me-2"></i>Finance</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="ex-with-icons-tab-4" data-mdb-toggle="tab" href="#ex-with-icons-tabs-4" role="tab"
+      aria-controls="ex-with-icons-tabs-4" aria-selected="false"><i class="fas fa-heart fa-fw me-2"></i>Relationships</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="ex-with-icons-tab-5" data-mdb-toggle="tab" href="#ex-with-icons-tabs-5" role="tab"
+      aria-controls="ex-with-icons-tabs-5" aria-selected="false"><i class="fas fa-cogs fa-fw me-2"></i>Well-Being</a>
+  </li>
+</ul>
+<!-- Tabs navs -->
+
+<!-- Tabs content -->
+<div class="tab-content" id="ex-with-icons-content">
+  <div class="tab-pane fade show active" id="ex-with-icons-tabs-1" role="tabpanel" aria-labelledby="ex-with-icons-tab-1">
+    {% for pitch in pitches %}
+    <div class="card mb-4 mt-2 ">
+        <div class="card-header"> <img
+            src="{{ url_for('static', filename='profile_pics/' + pitch.author.image_file) }}"
+            alt="{{ pitch.author.username }}"
+            class="img-fluid rounded-circle"
+            style="max-height: 50px; width: 50px;"
+            
+          />     {{ pitch.author.username }} <br> <small class="text-muted">Posted on {{pitch.date_posted.strftime('%Y-%m-%d')}}    Category: {{ pitch.category }}</small></div>
+        <div class="card-body">
+         <a href="{{ url_for('pitch', pitch_id=pitch.id) }}"><h5 class="card-title">{{ pitch.title }}</h5></a>
+          <small class="card-text">
+            {{pitch.content}}.
+          </small>
+      
+          
+        </div>
+        <div class="card-footer"><small class="text-muted">
+          <div class="row">
+            <div class="col" style="height: 10px; width:10px;"><i class="fa-solid fa-thumbs-up" ></i></div>
+            <div class="col"><i class="fa-solid fa-thumbs-down"></i></div>
+            <div class="col"><a href="{{ url_for('comment_pitch', pitch_id=pitch.id) }}" class="btn btn-info btn-rounded btn-sm"> Leave a Comment</a></div>
+          </div>
+          <br>
+          Comments:
+          
+
+        </small></div>
+      </div>
+
+    {% endfor %}
+  </div>
+  <div class="tab-pane fade" id="ex-with-icons-tabs-2" role="tabpanel" aria-labelledby="ex-with-icons-tab-2">
+    {% for pitch in business %}
+    <div class="card mb-4 mt-2 ">
+        <div class="card-header"> <img
+            src="{{ url_for('static', filename='profile_pics/' + pitch.author.image_file) }}"
+            alt="{{ pitch.author.username }}"
+            class="img-fluid rounded-circle"
+            style="max-height: 50px; width: 50px;"
+            
+          />     {{ pitch.author.username }} <br> <small class="text-muted">Posted on {{pitch.date_posted.strftime('%Y-%m-%d')}}    Category: {{ pitch.category }}</small></div>
+        <div class="card-body">
+         <a href="{{ url_for('pitch', pitch_id=pitch.id) }}"><h5 class="card-title">{{ pitch.title }}</h5></a>
+          <small class="card-text">
+            {{pitch.content}}.
+          </small>
+      
+          
+        </div>
+        <div class="card-footer"><small class="text-muted">
+          <div class="row">
+            <div class="col" style="height: 10px; width:10px;"><i class="fa-solid fa-thumbs-up" ></i></div>
+            <div class="col"><i class="fa-solid fa-thumbs-down"></i></div>
+            <div class="col"><a href="{{ url_for('comment_pitch', pitch_id=pitch.id) }}" class="btn btn-info btn-rounded btn-sm"> Leave a Comment</a></div>
+          </div>
+          <br>
+          Comments:
+          
+
+        </small></div>
+      </div>
+
+    {% endfor %}
+  </div>
+  <div class="tab-pane fade" id="ex-with-icons-tabs-3" role="tabpanel" aria-labelledby="ex-with-icons-tab-3">
+    {% for pitch in finance %}
+    <div class="card mb-4 mt-2 ">
+        <div class="card-header"> <img
+            src="{{ url_for('static', filename='profile_pics/' + pitch.author.image_file) }}"
+            alt="{{ pitch.author.username }}"
+            class="img-fluid rounded-circle"
+            style="max-height: 50px; width: 50px;"
+            
+          />     {{ pitch.author.username }} <br> <small class="text-muted">Posted on {{pitch.date_posted.strftime('%Y-%m-%d')}}    Category: {{ pitch.category }}</small></div>
+        <div class="card-body">
+         <a href="{{ url_for('pitch', pitch_id=pitch.id) }}"><h5 class="card-title">{{ pitch.title }}</h5></a>
+          <small class="card-text">
+            {{pitch.content}}.
+          </small>
+      
+          
+        </div>
+        <div class="card-footer"><small class="text-muted">
+          <div class="row">
+            <div class="col" style="height: 10px; width:10px;"><i class="fa-solid fa-thumbs-up" ></i></div>
+            <div class="col"><i class="fa-solid fa-thumbs-down"></i></div>
+            <div class="col"><a href="{{ url_for('comment_pitch', pitch_id=pitch.id) }}" class="btn btn-info btn-rounded btn-sm"> Leave a Comment</a></div>
+          </div>
+          <br>
+          Comments:
+          
+
+        </small></div>
+      </div>
+
+    {% endfor %}
+  </div>
+  <div class="tab-pane fade" id="ex-with-icons-tabs-4" role="tabpanel" aria-labelledby="ex-with-icons-tab-4">
+    {% for pitch in relationships %}
+    <div class="card mb-4 mt-2 ">
+        <div class="card-header"> <img
+            src="{{ url_for('static', filename='profile_pics/' + pitch.author.image_file) }}"
+            alt="{{ pitch.author.username }}"
+            class="img-fluid rounded-circle"
+            style="max-height: 50px; width: 50px;"
+            
+          />     {{ pitch.author.username }} <br> <small class="text-muted">Posted on {{pitch.date_posted.strftime('%Y-%m-%d')}}    Category: {{ pitch.category }}</small></div>
+        <div class="card-body">
+         <a href="{{ url_for('pitch', pitch_id=pitch.id) }}"><h5 class="card-title">{{ pitch.title }}</h5></a>
+          <small class="card-text">
+            {{pitch.content}}.
+          </small>
+      
+          
+        </div>
+        <div class="card-footer"><small class="text-muted">
+          <div class="row">
+            <div class="col" style="height: 10px; width:10px;"><i class="fa-solid fa-thumbs-up" ></i></div>
+            <div class="col"><i class="fa-solid fa-thumbs-down"></i></div>
+            <div class="col"><a href="{{ url_for('comment_pitch', pitch_id=pitch.id) }}" class="btn btn-info btn-rounded btn-sm"> Leave a Comment</a></div>
+          </div>
+          <br>
+          Comments:
+          
+
+        </small></div>
+      </div>
+
+    {% endfor %}
+  </div>
+  <div class="tab-pane fade" id="ex-with-icons-tabs-5" role="tabpanel" aria-labelledby="ex-with-icons-tab-5">
+    {% for pitch in wellbeing %}
+    <div class="card mb-4 mt-2 ">
+        <div class="card-header"> <img
+            src="{{ url_for('static', filename='profile_pics/' + pitch.author.image_file) }}"
+            alt="{{ pitch.author.username }}"
+            class="img-fluid rounded-circle"
+            style="max-height: 50px; width: 50px;"
+            
+          />     {{ pitch.author.username }} <br> <small class="text-muted">Posted on {{pitch.date_posted.strftime('%Y-%m-%d')}}    Category: {{ pitch.category }}</small></div>
+        <div class="card-body">
+         <a href="{{ url_for('pitch', pitch_id=pitch.id) }}"><h5 class="card-title">{{ pitch.title }}</h5></a>
+          <small class="card-text">
+            {{pitch.content}}.
+          </small>
+      
+          
+        </div>
+        <div class="card-footer"><small class="text-muted">
+          <div class="row">
+            <div class="col" style="height: 10px; width:10px;"><i class="fa-solid fa-thumbs-up" ></i></div>
+            <div class="col"><i class="fa-solid fa-thumbs-down"></i></div>
+            <div class="col"><a href="{{ url_for('comment_pitch', pitch_id=pitch.id) }}" class="btn btn-info btn-rounded btn-sm"> Leave a Comment</a></div>
+          </div>
+          <br>
+          Comments:
+          
+
+        </small></div>
+      </div>
+
+    {% endfor %}
+  </div>
+</div>
+<!-- Tabs content -->
+</div>
+<div class="col-md-3">
+  <h4 class="text-center mt-5">Top Pitchers</h4><hr>
+  {% for user in users[:limit]: %}
+  <div class="card-header"> <img
+    src="{{ url_for('static', filename='profile_pics/' + user.image_file) }}"
+    alt="{{ user.username }}"
+    class="img-fluid rounded-circle"
+    style="max-height: 30px; max-width:25px;"
+    
+  />    <small> {{ user.username }}</small></div>
+  {% endfor %}
+</div>
+</div>
+</div>
+
+
+{% endblock %}
